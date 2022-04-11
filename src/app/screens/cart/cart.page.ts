@@ -86,7 +86,7 @@ export class CartPage implements OnInit, ViewWillEnter {
     });
     swalWithBootstrapButtons.fire({
         title: 'Anda Yakin',
-        text: 'Menambahkan Menu Berupa  ?',
+        text: 'Membuat Transaksi Baru?',
         type: 'warning',
         showCancelButton: true,
         showCloseButton: true,

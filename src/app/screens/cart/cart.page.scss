@@ -1,18 +1,25 @@
 ion-content {
   --padding-top: 1.6rem;
   --padding-end: 1.6rem;
+  --background: #ffe5d0;
 
   .title {
     font-weight: 700;
     color: #1f1f1f;
     margin-bottom: 2rem;
     padding-left: 1.6rem;
+    background: #ffe5d0;
+  }
+
+  .list{
+    background: #ffe5d0;
   }
 
   app-cart-item {
     display: block;
     width: 100%;
     padding-left: 1.6rem;
+    --background: #ffe5d0;
   }
 
   .total-amount{
@@ -22,21 +29,23 @@ ion-content {
   ion-item-sliding {
     margin-bottom: 2rem;
     overflow: hidden;
+    --background: #ffe5d0;
 
     ion-item {
       --padding-start: 0;
       --inner-padding-end: 0;
       border-radius: 25px;
+      --background: #ffe5d0;
     }
 
     ion-item-options {
       border: 2px solid #f3f3f3;
       border-radius: 25px;
       overflow: hidden;
-      background: #fff;
+      --background: #ffe5d0;
 
       ion-item-option {
-        background: #fff;
+        --background: #ffe5d0;
       }
     }
   }
@@ -47,7 +56,7 @@ ion-content {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #c7c7c7;
+    color: #6F4E37;
 
     ion-icon {
       font-size: 8rem;
@@ -58,9 +67,12 @@ ion-content {
     }
   }
 
-  app-button {
+  ion-button {
     display: block;
     padding-left: 1.6rem;
+    --background: #6F4E37;
+    color: #ffe5d0;
+
 
     span {
       margin-left: 10px;

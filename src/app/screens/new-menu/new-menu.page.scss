@@ -1,13 +1,13 @@
 ion-content {
-  --background: #e0dfe6;
+  --background: #ffe5d0;
 
   #header {
     height: 250px;
-    background: #7972e6;
-    border-radius: 0 0 20px 20px;
+    background: #6F4E37;
+    border-radius: 0 0 70px 70px;
     display: flex;
     flex-direction: column;
-    color: #fff;
+    color: #ffe5d0;
     padding: 20px;
 
     #app-bar {
@@ -38,11 +38,15 @@ ion-content {
     }
 
     h1 {
-      font-size: 19px;
+      text-align: center;
+      font-size: 30px;
+      font-family: cursive;
       margin-bottom: 5px;
     }
     p {
+      text-align: center;
       font-size: 15px;
+      font-family: cursive;
       line-height: 1.4;
     }
   }
@@ -55,8 +59,9 @@ ion-content {
 
     .form-wrapper {
       box-shadow: none;
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 15px 10px;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
       ion-item {
         --background: #efefef;
@@ -67,6 +72,7 @@ ion-content {
         --min-height: 40px;
         margin-bottom: 15px;
         border-radius: 5px;
+        color: #6F4E37;
 
         ion-icon {
           font-size: 18px;
@@ -83,6 +89,7 @@ ion-content {
           background-color: #efefef;
           width: 100%;
           border: none;
+          color: #6F4E37;
         }
 
         ion-select{
@@ -93,6 +100,8 @@ ion-content {
 
       ion-button {
         margin-top: 25px;
+        color : #ffe5d0;
+        --background : #6F4E37;
       }
     }
 
@@ -104,7 +113,7 @@ ion-content {
 
       .lines {
         height: 1px;
-        background: #858585;
+        background: #6F4E37;
         display: block;
       }
 
@@ -113,11 +122,11 @@ ion-content {
         top: -7px;
         left: 50%;
         transform: translateX(-50%);
-        background: #e0dfe6;
+        background: #ffe5d0;
         padding: 0 16px;
         font-size: 12px;
         font-weight: 500;
-        color: #5e5e5e;
+        color: #6F4E37;
       }
     }
 

@@ -2,7 +2,7 @@
   <h3 class="title" *ngIf="(cartItems$|async).length">{{(cartItems$|async).length}} towards at cart</h3>
 
   <!-- CART ITEMS -->
-  <ion-list lines="none">
+  <ion-list class="list" lines="none">
     <ion-item-sliding *ngFor="let item of cartItems$|async">
       <ion-item>
         <app-cart-item [item]="item" (increase)="onIncrease(item)" (decrease)="onDecrease(item)"></app-cart-item>
@@ -25,7 +25,7 @@
   <div class="total-amount" *ngIf="(cartItems$|async).length">
     Total: <span><sup>Rp</sup>{{totalAmount$|async|number:'1.2'}}</span>
   </div>
-  <app-button *ngIf="(cartItems$|async).length" (click)="save()" >
+  <ion-button *ngIf="(cartItems$|async).length" (click)="save()" >
     SUBMIT
-  </app-button>
+  </ion-button>
 </ion-content>
