@@ -175,20 +175,38 @@ export class Bayar implements ViewWillEnter{
   }
 
   save(){
-    const values = new Transaksi();
-    values.daftarMenu = this.transaction.daftarMenu;
-    values.uangJumlah = this.transaction.uangJumlah;
-    values.idPegawai = this.transaction.idPegawai;
-    values.uangMasuk = this.form.get('vMasuk').value;
-    values.uangKeluar = this.form.get('vKeluar').value;
-    this.service.newTransaksi(values).subscribe(response=> {
-      this.presentToast('Transaksi Berhasil');
-      this.router.navigate(['/struke']);
-      for(let del of this.transaction.daftarMenu){
-        this.cartService.removeItem(del.idMenu);
-      }
-    }, error=>{
-      this.presentToast('Transaksi Gagal');
+    const swalWithBootstrapButtons = Swal.mixin({
+    });
+    swalWithBootstrapButtons.fire({
+        title: 'Anda Yakin',
+        text: 'Konfirmasi Pembayaran Transaksi?',
+        type: 'warning',
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Tidak',
+        reverseButtons: true,
+        confirmButtonColor: '#36c6d3',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
+          const values = new Transaksi();
+          values.daftarMenu = this.transaction.daftarMenu;
+          values.uangJumlah = this.transaction.uangJumlah;
+          values.idPegawai = this.transaction.idPegawai;
+          values.uangMasuk = this.form.get('vMasuk').value;
+          values.uangKeluar = this.form.get('vKeluar').value;
+          this.service.newTransaksi(values).subscribe(response=> {
+            this.presentToast('Transaksi Berhasil');
+            for(let del of this.transaction.daftarMenu){
+              this.cartService.removeItem(del.idMenu);
+            }
+            this.router.navigate(['/struk-transaksi']);
+            this.modalController.dismiss();
+          }, error=>{
+            this.presentToast('Transaksi Gagal');
+          });
+        }
     });
   }
 

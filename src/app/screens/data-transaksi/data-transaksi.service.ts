@@ -15,4 +15,12 @@ export class DataTransaksiService {
   public findDataTransaksi(transaksi: Transaksi)  {
     return this.http.post<Transaksi[]>(`${environment.baseUrl}/api/transaksi/findDataTransaksi`, transaksi, {observe : 'response'});
   }
+
+  public findAllkasir()  {
+    return this.http.get<any>(`${environment.baseUrl}/api/user/findAllKasir`, {observe : 'response'});
+  }
+
+  public deleteUser(id){
+    return this.http.delete<any>(`${environment.baseUrl}/api/user/delete/${id}`, {observe : 'response'});
+  }
 }

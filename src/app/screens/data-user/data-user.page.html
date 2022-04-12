@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <div class="header">
+      <ion-buttons>
+        <ion-button routerLink="/options">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Data User</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="ion-padding" *ngIf="showtable == true">
+    <ngx-datatable
+      class="material"
+      [limit]="10"
+      [rows]="rows"
+      [rowHeight]="50"
+      [columns]="columns"
+      [columnMode]="'force'"
+      [sortType]="'multi'"
+      [headerHeight]="50"
+      [footerHeight]="50">
+      <ngx-datatable-column name="Username" prop="username" [width]="50">
+        <ng-template let-value="value" let-expanded="expanded" ngx-datatable-cell-template style="font-size: 10px;">
+          {{ value }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Role" prop="privilege" [width]="50">
+        <ng-template let-value="value" ngx-datatable-cell-template style="font-size: 10px;">
+          {{ value }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Action" prop="id" [width]="50">
+        <ng-template let-value="value" ngx-datatable-cell-template style="font-size: 10px;">
+          <ion-button (click)="delete(value)"  style="background-color: rgb(177, 200, 177); border-radius: 5px;" color="light">
+            Delete
+          </ion-button>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</ion-content>

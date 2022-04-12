@@ -3,53 +3,57 @@
     <div class="header">
       <ion-buttons>
         <ion-button routerLink="/options">
-          <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title color="light">Data Transaksi</ion-title>
+      <ion-title>Data Transaksi</ion-title>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Filters</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <div class = "list">
-      <select class="pegawai" name="" id="">
-        <option value="" selected>Pilih Nama Pegawai</option>
-      </select>
-
-      <ion-item class="datepicker">
-        <ion-label>Pilih Tanggal</ion-label>
-        <ion-datetime
-          displayFormat="DD.MM.YYYY"
-          presentation="date"
-          [(ngModel)]="date"
-        ></ion-datetime>
-      </ion-item>
-
-   </div>
-   <div class="list-button">
-    <ion-buttons>
-      <ion-button class="search" color="light">
-        search
-      </ion-button>
-    </ion-buttons>
-    &nbsp;&nbsp;&nbsp;
-    <ion-buttons>
-      <ion-button class="reset" color="light">
-        reset
-      </ion-button>
-    </ion-buttons>
-   </div>
-  </ion-card-content>
-</ion-card>
 
 <ion-content>
-  <div class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Filters</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="form">
+        <div class = "list">
+          <select class="pegawai" formControlName="idPegawai" name="" id="" style="background: #6F4E37; color: #ffe5d0;">
+            <option [value]=null selected>Pilih Nama Pegawai</option>
+            <option *ngFor="let item of kasir" [value]="item.id">{{item.username}}</option>
+          </select>
+
+          <ion-item class="datepicker" >
+            <ion-label>Pilih Tanggal</ion-label>
+            <ion-datetime
+              formControlName="tanggal"
+              displayFormat="DD.MM.YYYY"
+              presentation="date"
+              [(ngModel)]="dateInput"
+            ></ion-datetime>
+          </ion-item>
+        </div>
+      </form>
+     <div class="list-button">
+      <ion-buttons>
+        <ion-button class="search" (click)="getData()">
+          search
+        </ion-button>
+      </ion-buttons>
+      &nbsp;&nbsp;&nbsp;
+      <ion-buttons>
+        <ion-button class="reset" (click)="reset()">
+          reset
+        </ion-button>
+      </ion-buttons>
+     </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="ion-padding" *ngIf="showtable == true">
     <!-- Theme classes dark, material, bootstrap -->
     <ngx-datatable
       class="material"

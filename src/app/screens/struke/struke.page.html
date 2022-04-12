@@ -4,8 +4,8 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content  >
-  <div *ngIf="struke == true" class="content" id="print-page">
+<ion-content>
+  <div class="content" id="print-page">
     <h1 class="title">
       Kafe Kafean
     </h1>
@@ -17,27 +17,29 @@
       <div>
         Date :
       </div>
-      <div>{{data.dateToString}}</div>
+      <div *ngIf="struke == true">{{data.dateToString}}</div>
     </div>
     <div class="form-custom">
       <div>
         Transaction :
       </div>
-      <div>{{data.idTransaksi}}</div>
+      <div *ngIf="struke == true">{{data.idTransaksi}}</div>
     </div>
     <div class="form-custom">
       <div>
         Waiters :
       </div>
-      <div>{{data.namaPegawai}}</div>
+      <div *ngIf="struke == true">{{data.namaPegawai}}</div>
     </div>
     <hr>
-    <div class="menu" *ngFor="let items of data.daftarMenu" >
-      <div>
-        {{items.namaMenu}} &nbsp;&nbsp;&nbsp; {{items.volume}}X
-      </div>
-      <div>
-        {{items.hargaSatuan*items.volume|number:'1.2'}}
+    <div *ngIf="struke == true">
+      <div class="menu" *ngFor="let items of data.daftarMenu" >
+        <div>
+          {{items.namaMenu}} &nbsp;&nbsp;&nbsp; {{items.volume}}X
+        </div>
+        <div>
+          {{items.hargaSatuan*items.volume|number:'1.2'}}
+        </div>
       </div>
     </div>
     <hr>
@@ -45,20 +47,20 @@
       <div>
         Total :
       </div>
-      <div>{{data.uangJumlah|number:'1.2'}}</div>
+      <div *ngIf="struke == true">{{data.uangJumlah|number:'1.2'}}</div>
     </div>
     <hr>
     <div class="form-custom">
       <div>
         Cash :
       </div>
-      <div>{{data.uangMasuk|number:'1.2'}}</div>
+      <div *ngIf="struke == true">{{data.uangMasuk|number:'1.2'}}</div>
     </div>
     <div class="form-custom">
       <div>
         Charge :
       </div>
-      <div>{{data.uangKeluar|number:'1.2'}}</div>
+      <div *ngIf="struke == true">{{data.uangKeluar|number:'1.2'}}</div>
     </div>
     <br>
     <br>

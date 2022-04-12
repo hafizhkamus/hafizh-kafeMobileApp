@@ -50,9 +50,18 @@ const routes: Routes = [
     loadChildren: () => import('./screens/new-menu/new-menu.module').then( m => m.NewMenuPageModule)
   },
   {
-    path: 'struke',
+    path: 'struk-transaksi',
     loadChildren: () => import('./screens/struke/struke.module').then( m => m.StrukePageModule)
+  },
+  {
+    path: 'transaksi-berhasil',
+    loadChildren: () => import('./screens/transaksi-berhasil/transaksi-berhasil.module').then( m => m.TransaksiBerhasilPageModule)
+  },  {
+    path: 'data-user',
+    loadChildren: () => import('./screens/data-user/data-user.module').then( m => m.DataUserPageModule)
   }
+
+
 ];
 
 @NgModule({

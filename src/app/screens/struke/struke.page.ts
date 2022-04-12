@@ -27,7 +27,13 @@ export class StrukePage implements OnInit, ViewWillEnter {
   // options: any;
 
   // eslint-disable-next-line max-len
-  constructor(private service: StrukeService) { }
+  constructor(private service: StrukeService) {
+    this.service.findLastTransaksi().subscribe(data=>{
+      this.data = data.body;
+      console.log(this.data);
+      this.struke = true;
+    });
+   }
   ionViewWillEnter(): void {
     this.service.findLastTransaksi().subscribe(data=>{
       this.data = data.body;
